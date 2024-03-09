@@ -1,0 +1,28 @@
+def monkeys_left_on_tree(n, k, j, m, p):
+    # Check for invalid input
+    if n <= 0 or k <= 0 or j <= 0 or m <= 0 or p <= 0:
+        return "INVALID INPUT"
+
+    # Calculate the total number of bananas and peanuts each monkey needs
+    total_food_per_monkey = k + j
+
+    # Calculate the total number of food items available
+    total_food_available = m + p
+
+    # Calculate the total number of monkeys that can eat
+    total_monkeys_can_eat = total_food_available // total_food_per_monkey
+
+    # Calculate the number of monkeys left on the tree
+    monkeys_left = n - total_monkeys_can_eat
+
+    return monkeys_left
+
+# Input values
+n = int(input("Enter the total number of monkeys: "))
+k = int(input("Enter the number of eatable bananas by single monkey: "))
+j = int(input("Enter the number of eatable peanuts by single monkey: "))
+m = int(input("Enter the total number of bananas: "))
+p = int(input("Enter the total number of peanuts: "))
+
+# Calculate and print the number of monkeys left on the tree
+print("Number of Monkeys left on the tree:", monkeys_left_on_tree(n, k, j, m, p))
