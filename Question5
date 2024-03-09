@@ -1,0 +1,24 @@
+def select_most_fit_trainees(oxygen_levels):
+    highest_average_oxygen = max(oxygen_levels)
+    most_fit_trainees = [i+1 for i, level in enumerate(oxygen_levels) if level == highest_average_oxygen]
+    return most_fit_trainees, highest_average_oxygen
+
+oxygen_levels = []
+
+for round_num in range(3):
+    for trainee_num in range(3):
+        oxygen = int(input(f"Round {round_num + 1}: Oxygen value of trainee {trainee_num + 1}: "))
+        if not (1 <= oxygen <= 100):
+            print("Invalid oxygen level! Oxygen level should be in the range between 1 and 100.")
+            exit()
+
+        oxygen_levels.append(oxygen)
+
+average_oxygen_levels = [sum(oxygen_levels[i::3]) / 3 for i in range(3)]
+most_fit_trainees, highest_average_oxygen = select_most_fit_trainees(average_oxygen_levels)
+
+if highest_average_oxygen >= 70:
+    print("Most fit trainee(s):", most_fit_trainees)
+    print("Highest average oxygen level:", round(highest_average_oxygen))
+else:
+    print("All trainees are unfit.")
