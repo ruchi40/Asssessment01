@@ -1,0 +1,20 @@
+def are_anagrams(str1, str2):
+    # Convert both strings to lowercase
+    str1 = str1.lower()
+    str2 = str2.lower()
+
+    # Sort the characters in both strings and compare them
+    if sorted(str1) == sorted(str2):
+        return "Yes"
+    else:
+        return "No"
+
+# Test cases
+str1_1 = input("Enter the str1_1: ")
+str2_1 = input("Enter the str2_1: ")
+str1_2 = input("Enter the str1_2: ")
+str2_2 = input("Enter the str2_2: ")
+
+# Output results
+print(are_anagrams(str1_1, str2_1))
+print(are_anagrams(str1_2, str2_2))
