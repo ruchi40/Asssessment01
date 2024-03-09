@@ -1,0 +1,27 @@
+def generate_bill(pizzas, puffs, cooldrinks):
+    # Prices of pizzas, puffs, and cool drinks
+    pizza_price = 100
+    puffs_price = 20
+    cooldrink_price = 10
+
+    # Calculate total price
+    total_price = (pizzas * pizza_price) + (puffs * puffs_price) + (cooldrinks * cooldrink_price)
+
+    # Return bill details
+    return {
+        "No of pizzas": pizzas,
+        "No of puffs": puffs,
+        "No of cooldrinks": cooldrinks,
+        "Total price": total_price
+    }
+
+# Input quantities of pizzas, puffs, and cool drinks bought
+pizzas = int(input("Enter the no of pizzas bought: "))
+puffs = int(input("Enter the no of puffs bought: "))
+cooldrinks = int(input("Enter the no of ]cool drinks bought: "))
+
+# Generate a bill
+bill_details = generate_bill(pizzas, puffs, cooldrinks)
+print("\nBill Details")
+for item, quantity in bill_details.items():
+    print(item + ":", quantity)
