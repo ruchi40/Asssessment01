@@ -1,0 +1,22 @@
+def find_leaders(arr):
+    n = len(arr)
+    leaders = []
+    max_right = float('-inf')  # Initialize the maximum element encountered from the right
+
+    # Iterate through the array from left to right
+    for i in range(n):
+        # If the current element is greater than the maximum element encountered from the right
+        if arr[i] > max_right:
+            # Update the maximum element encountered from the right
+            max_right = arr[i]
+            # Add the current element to the list of leaders
+            leaders.append(max_right)
+
+    return leaders
+
+# Take input from the user for the array of numbers
+arr = list(map(int, input("Enter the sequence of numbers separated by space: ").split()))
+
+# Find and print the leaders in the sequence
+print("Leaders in the sequence:", find_leaders(arr))
+
