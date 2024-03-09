@@ -1,0 +1,36 @@
+def second_largest_sum(matrix):
+    even_submatrix = []
+    odd_submatrix = []
+
+    # Divide the matrix into even and odd submatrices
+    for i in range(len(matrix)):
+        if i % 2 == 0:
+            even_submatrix.extend(matrix[i])
+        else:
+            odd_submatrix.extend(matrix[i])
+
+    # Sort both submatrices in ascending order
+    even_submatrix.sort()
+    odd_submatrix.sort()
+
+    # Calculate the sum of the second largest numbers
+    even_sum = sum(even_submatrix[-2:])
+    odd_sum = sum(odd_submatrix[-2:])
+
+    return even_sum, odd_sum
+
+# Input the size of the matrix
+size = int(input("Enter the size of the array: "))
+
+# Input the elements of the matrix
+matrix = []
+for i in range(size):
+    row = [int(input(f"Enter the element at the {i}th index: ")) for j in range(size)]
+    matrix.append(row)
+
+# Calculate and print the sum of the second largest numbers from both matrices
+even_sum, odd_sum = second_largest_sum(matrix)
+print("After sorting:")
+print("Sorted even array:", even_sum)
+print("Sorted odd array:", odd_sum)
+print("The sum of the second largest numbers from both matrices is:", even_sum + odd_sum)
