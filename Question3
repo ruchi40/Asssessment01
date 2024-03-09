@@ -1,0 +1,17 @@
+def best_price_to_buy_stock(N, stock_prices):
+    min_sum = float('inf')  # Initialize the minimum cumulative sum to positive infinity
+    current_sum = 0  # Initialize the current cumulative sum
+
+    # Iterate through the array representing the change in stock price
+    for price_change in stock_prices:
+        current_sum += price_change  # Update the current cumulative sum
+        min_sum = min(min_sum, current_sum)  # Update the minimum cumulative sum
+
+    return min_sum  # Return the best price to buy the stock at
+
+# Input number of days and array representing change in stock price
+N = int(input("Enter the number of days: "))
+stock_prices = list(map(int, input("Enter the array of stock price changes separated by commas: ").split(',')))
+
+# Calculate and print the best price to buy the stock at
+print("Best price to buy the stock at:", best_price_to_buy_stock(N, stock_prices))
