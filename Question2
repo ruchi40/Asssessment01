@@ -1,0 +1,14 @@
+def total_steps(stairs, steps):
+    # Calculate the total steps taken
+    total_steps = stairs // steps
+    # Add an additional step if there are remaining stairs
+    if stairs % steps != 0:
+        total_steps += 1
+    return total_steps
+
+#User Input
+stairs = int(input("Enter the number of stairs: "))
+steps = int(input("Enter the number of steps: "))
+
+# Calculate and print the total steps taken
+print("Total steps taken:", total_steps(stairs, steps))
